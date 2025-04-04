@@ -10,10 +10,13 @@ window.addEventListener("load", function() {
   document.getElementById("volume").innerHTML = (video.volume * 100) + "%";
   
   document.getElementById("play").addEventListener("click", function() {
-    video.play();
-    document.getElementById("volume").innerHTML = (video.volume * 100) + "%";
-    console.log("Play");
+	let sliderValue = document.getElementById("slider").value;
+	video.volume = sliderValue / 100;
+	video.play();
+	document.getElementById("volume").innerHTML = sliderValue + "%";
+	console.log("Play");
   });
+  
   
   document.getElementById("pause").addEventListener("click", function() {
     video.pause();
